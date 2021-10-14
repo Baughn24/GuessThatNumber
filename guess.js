@@ -19,3 +19,26 @@ let guess;
 
 //For storing user's response to play again or not play again
 let playAgain;
+
+//
+alert(`Welcome to "GUESS THAT NUMBER!" Please click "OK" to start the game.`);
+
+//Game restarts as long as restartGame has value of true
+while (restartGame){
+//Asks user to enter a number to set the upper bound for the random number (AKA number to be guessed)that will be created.
+rangeNum = prompt(`Please enter a maximum number for the range:`);
+
+//Using parseInt to attempt to convert the user's response into a number value. NOTE: The value returned from a prompt is a string value. Also, if the value cannot be converted then the value returned will be NaN (not a number). This happens behind the scenes. If someone tries to enter a word, it will try to convert it to a number, which it can't so it returns the NaN. The value for rangeNum would be set to NaN
+rangeNum = parseInt(rangeNum)
+
+//Below confirms they entered a valid number above 0, which is what the parseInt is checking. 
+//If someone enters a word or an invalid number or a number below 0, you will get the prompt of enterNumText which goes back to the beginning of the loop, to prompt the user to enter a valid number above 0.
+//NOTE: NaN has a default boolean value of false. Also, all numbers, positive and negative, have a default boolean value of true, except for zero which has a default boolean value of false.
+//! changes it from true to false, or false to true. In an OR || statement you only need 1 side to be true.
+while (!rangeNum || rangeNum <1){
+    //rangeNum = parseInt(prompt(enterNumText)); This is the same as the 2 below, it's just doing it on 1 line.
+    rangeNum = prompt(enterNumText);
+    rangeNum = parseInt(rangeNum);
+}
+    break;
+}
