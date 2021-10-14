@@ -65,6 +65,12 @@ guess = prompt(`Please enter a guess from 1 to ${rangeNum}. You have ${attmepts}
 
 //If they guess the right number or they run out of attempts it will stop looping and breaks them out of the game. (NOTE: loops until a BREAK keyword is run.)
 while (true){
+    //Displays the number/answer when a code word is entered. It's a secret code they can enter to get the answer.
+    if (guess === `Valley Forge`){
+        alert(`The number is ${randomNum}`);
+//Prompts the user to enter another guess.
+        guess = prompt(`Please enter a guess from 1 to ${rangeNum}. You have ${attempts} attempt(s) left`)
+    }
 //below Attempts to convert the user's guess into a number
 guess = parseInt(guess);
 //below makes sure they are guessing within the range they set
@@ -94,5 +100,26 @@ if (guess === randomNum){
 }
 }
 
+//Below is the section for playAgain
+playAgain = prompt(`Would you like to play again? Y for yes. N for no`);
+
+//Loop continues until user submits a valid response
+while (true){
+    //Checks if the user's response in No (AKA N). .toUpperCase will change it to an uppercase N if the user enters a lowercase n
+    if (playAgain.toUpperCase() === "N"){
+//Alerts the user that the game is over and the game/loop does not restart.
+alert("Thanks for playing1");
+//At the beginning the restartGame was set to true, so here we have to set it to false when the user enter N to not play again.
+restartGame = false;
+break;
+//Checks to see if the user's response is a YES (AKA "Y" or "y")
+}else if (playAgain.toUpperCase() === "Y"){
+    //The game restarts
     break;
+    //Prompts the user to enter a valid response and starts this loop again.
+}else {
+    playAgain = prompt(`Please enter Y or N`);
+}
+
+}
 }
