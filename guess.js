@@ -23,8 +23,11 @@ let playAgain;
 //
 alert(`Welcome to "GUESS THAT NUMBER!" Please click "OK" to start the game.`);
 
+//Below is taking care of the restartGame section
 //Game restarts as long as restartGame has value of true
 while (restartGame){
+
+//Below takes care of the rangeNum section
 //Asks user to enter a number to set the upper bound for the random number (AKA number to be guessed)that will be created.
 rangeNum = prompt(`Please enter a maximum number for the range:`);
 
@@ -40,5 +43,13 @@ while (!rangeNum || rangeNum <1){
     rangeNum = prompt(enterNumText);
     rangeNum = parseInt(rangeNum);
 }
+
+//Below takes care of the randomNum section
+//Math.random goes 0-1  but not 1.
+//This creates the random number (AKA number to be guessed by the user) using the range number entered by the user.
+randomNum = Math.floor(Math.random() * rangeNum) + 1;
+
+
+
     break;
 }
