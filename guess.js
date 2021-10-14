@@ -60,9 +60,24 @@ while (!attempts || attempts < 1){
 
 
 //Below is the the section for guess
+//Asks user to enter a guess in the range that they set.
+guess = prompt(`Please enter a guess from 1 to ${rangeNum}. You have ${attmepts} attempt(s) left:`);
+
+//If they guess the right number or they run out of attempts it will stop looping and breaks them out of the game. (NOTE: loops until a BREAK keyword is run.)
+while (true){
+//below Attempts to convert the user's guess into a number
+guess = parseInt(guess);
+//below makes sure they are guessing within the range they set
+//If any of the while statements are true, it will return the prompt to have them enter a different guess.
+while (!guess || guess < 1 || guess > rangeNum){
+    guess = pasreInt(prompt(`Please enter a number from 1 to ${rangeNum}`));
+}
+//If they get to this point, it means they entered a valid attempt but it we need to remove an attempt.
+attempts--;
 
 
-
+    break;
+}
 
     break;
 }
