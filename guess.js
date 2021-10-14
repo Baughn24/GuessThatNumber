@@ -45,9 +45,22 @@ while (!rangeNum || rangeNum <1){
 }
 
 //Below takes care of the randomNum section
-//Math.random goes 0-1  but not 1.
+//Math.random returns a random decimal 0-1  but not 1. Next it multiplies that number by the number the user enters. It will floor it and get rid of the decimal.
 //This creates the random number (AKA number to be guessed by the user) using the range number entered by the user.
 randomNum = Math.floor(Math.random() * rangeNum) + 1;
+
+//Below takes care of the attempts section
+//Prompts user to enter a number of attempts allowed (AKA number of guesses). Also attempting to convert their responseinto a number value.
+attempts = parseInt(prompt(`Please enter a number of attempts allowed`));
+
+//Below prompts the user to enter a valid number. So if they enter 0 or an invalid number or a word, it will keep looping them to enter a valid number.
+while (!attempts || attempts < 1){
+    attempts = pasreInt(prompt(enterNumText));
+}
+
+
+//Below is the the section for guess
+
 
 
 
